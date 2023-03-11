@@ -6,6 +6,7 @@ import {
   Avatar,
   Tooltip,
   Progress,
+  Input,
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import data from "../../data/authorstabledata";
@@ -23,6 +24,13 @@ export function Tables() {
   const nPages = Math.ceil(data.length / recordsPerPage);
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
+      <div className="justify-center md:mr-4 md:w-56">
+        <Input
+          label="Enter the address"
+          autoComplete="on"
+          defaultValue={"0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"}
+        />
+      </div>
       <div>
         <Sample data={currentRecords} />
         <Page
@@ -37,7 +45,7 @@ export function Tables() {
       <Card>
         <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
           <Typography variant="h6" color="white">
-            Projects Table
+            Historical Pool positions for wallet
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">

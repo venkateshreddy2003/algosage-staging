@@ -72,9 +72,13 @@ export function DashboardNavbar() {
           </Typography>
         </div>
         <div className="flex items-center">
-          <div className="mr-auto md:mr-4 md:w-56">
-            <Input label="Type here" />
-          </div>
+          {/* <div className="mr-auto md:mr-4 md:w-56">
+            <Input
+              label="Enter the address"
+              autoComplete="on"
+              defaultValue={"0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984"}
+            />
+          </div> */}
           <IconButton
             variant="text"
             color="blue-gray"
