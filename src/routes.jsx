@@ -80,7 +80,7 @@ export const routes = [
           </svg>
         ),
         name: "Historical Portfolio",
-        path: "/coming-soon",
+        path: "/Coming-soon",
         element: <Notifications />,
       },
     ],

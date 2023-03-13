@@ -17,11 +17,17 @@ import { useState } from "react";
 export function Tables() {
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
+  const [currentPage1, setCurrentPage1] = useState(1);
+  const [recordsPerPage1] = useState(10);
   console.log(data);
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const currentRecords = data.slice(indexOfFirstRecord, indexOfLastRecord);
   const nPages = Math.ceil(data.length / recordsPerPage);
+  const indexOfLastRecord1 = currentPage1 * recordsPerPage1;
+  const indexOfFirstRecord1 = indexOfLastRecord1 - recordsPerPage1;
+  const currentRecords1 = data.slice(indexOfFirstRecord1, indexOfLastRecord1);
+  const nPages1 = Math.ceil(data.length / recordsPerPage1);
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
       <div className="justify-center md:mr-4 md:w-56">
@@ -32,7 +38,10 @@ export function Tables() {
         />
       </div>
       <div>
-        <Sample data={currentRecords} />
+        <Sample
+          data={currentRecords}
+          tabletitle={"Current positions on uniswaap"}
+        />
         <Page
           nPages={nPages}
           currentPage={currentPage}
@@ -42,7 +51,18 @@ export function Tables() {
       {/* 
         end of table 
       */}
-      <Card>
+      <div>
+        <Sample
+          data={currentRecords1}
+          tabletitle={"Historical Pool positions for wallet"}
+        />
+        <Page
+          nPages={nPages1}
+          currentPage={currentPage1}
+          setCurrentPage={setCurrentPage1}
+        />
+      </div>
+      {/* <Card>
         <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
           <Typography variant="h6" color="white">
             Historical Pool positions for wallet
@@ -150,7 +170,7 @@ export function Tables() {
             </tbody>
           </table>
         </CardBody>
-      </Card>
+      </Card> */}
     </div>
   );
 }
